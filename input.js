@@ -1,4 +1,5 @@
 let connection;
+const constants = require('./constants');
 
 const setupInput = (conn) => {
   connection = conn;
@@ -16,18 +17,11 @@ const handleUserInput = function(key) {
   if (key === '\u0003') {
     process.exit();
   } else {
-    const movementCommands = {
-      'w':  'Move: up',
-      'a':  'Move: left',
-      's':  'Move: down',
-      'd':  'Move: right',
-      '1':  'Say: Hello, everyone!',
-      '2':  'Say: Hoory! I won!'
-    };
 
-    if (movementCommands.hasOwnProperty(key)) {
-      console.log(movementCommands[key]);
-      connection.write(movementCommands[key]);
+    if (constants.MESSAGE_MAPPINGS.hasOwnProperty(key)) {
+      const message = constants.MESSAGE_MAPPINGS[key];
+      console.log(message);
+      connection.write(message);
     }
 
     // if (Object.prototype.hasOwnProperty.call(movementCommands, key)) {
