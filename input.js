@@ -20,7 +20,9 @@ const handleUserInput = function(key) {
       'w':  'Move: up',
       'a':  'Move: left',
       's':  'Move: down',
-      'd':  'Move: right'
+      'd':  'Move: right',
+      '1':  'Say: Hello, everyone!',
+      '2':  'Say: Hoory! I won!'
     };
 
     if (movementCommands.hasOwnProperty(key)) {
